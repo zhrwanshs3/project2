@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/etnameProduct"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#70A03F"
+    tools:context=".productfile1.AddData2Fragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="42dp"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="Type"
+            app:layout_constraintBottom_toTopOf="@+id/etNumber"
+            app:layout_constraintStart_toStartOf="@+id/etnameProduct"
+            app:layout_constraintTop_toBottomOf="@+id/etnameProduct" />
+
+        <EditText
+            android:id="@+id/etnameProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text=" Name Product"
+            app:layout_constraintBottom_toTopOf="@+id/etType"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            tools:ignore="DuplicateIds" />
+
+        <EditText
+            android:id="@+id/etNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="Number"
+            app:layout_constraintBottom_toTopOf="@+id/etPrice"
+            app:layout_constraintEnd_toEndOf="@+id/etPrice"
+            app:layout_constraintTop_toBottomOf="@+id/etType" />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="61dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:minHeight="48dp"
+            android:text="Price"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd2"
+            app:layout_constraintEnd_toEndOf="@+id/etType"
+            app:layout_constraintStart_toStartOf="@+id/etType"
+            app:layout_constraintTop_toBottomOf="@+id/etNumber" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="60dp"
+            android:background="#71A13F"
+            android:src="@drawable/__2025_02_05_104606"
+            app:layout_constraintBottom_toTopOf="@+id/etnameProduct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAdd2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="164dp"
+            android:text="Add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etPrice"
+            app:layout_constraintStart_toStartOf="@+id/etPrice"
+            app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
