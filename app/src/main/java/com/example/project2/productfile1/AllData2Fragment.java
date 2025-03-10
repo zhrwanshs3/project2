@@ -1,4 +1,4 @@
-package com.example.project2.userfile1;
+package com.example.project2.productfile1;
 
 import android.os.Bundle;
 
@@ -26,15 +26,15 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AllData1Fragment#newInstance} factory method to
+ * Use the {@link AllData2Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AllData1Fragment extends Fragment {
+public class AllData2Fragment extends Fragment {
     private FirebaseServices fbs;
-    private ArrayList<User> users;
-    private RecyclerView rvUsers;
-    private UserAdapter adapter;
-    private TextView gotoAddData;
+    private ArrayList<product> products;
+    private RecyclerView rvProducts;
+    private ProductAdapter adapter2;
+    private TextView gotoAddData2;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -46,7 +46,7 @@ public class AllData1Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AllData1Fragment() {
+    public AllData2Fragment() {
         // Required empty public constructor
     }
 
@@ -56,11 +56,11 @@ public class AllData1Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AllData1Fragment.
+     * @return A new instance of fragment AllData2Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AllData1Fragment newInstance(String param1, String param2) {
-        AllData1Fragment fragment = new AllData1Fragment();
+    public static AllData2Fragment newInstance(String param1, String param2) {
+        AllData2Fragment fragment = new AllData2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,7 +81,7 @@ public class AllData1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_data1, container, false);
+        return inflater.inflate(R.layout.fragment_all_data2, container, false);
     }
     @Override
     public void onStart() {
@@ -89,40 +89,45 @@ public class AllData1Fragment extends Fragment {
 
 
         fbs = FirebaseServices.getInstance();
-        users = new ArrayList<>();
-        rvUsers = getView().findViewById(R.id.rvUserFragment);
-        adapter = new UserAdapter(getActivity(), users);
-        rvUsers.setAdapter(adapter);
-        rvUsers.setHasFixedSize(true);
-        rvUsers.setLayoutManager(new LinearLayoutManager(getActivity()));
-        fbs.getFire().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        products = new ArrayList<>();
+        rvProducts = getView().findViewById(R.id.rvProductsFragment);
+        adapter2 = new ProductAdapter(getActivity(), products);
+        rvProducts.setAdapter(adapter2);
+        rvProducts.setHasFixedSize(true);
+        rvProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
+        fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                 for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
-                    User use = dataSnapshot.toObject(User.class);
-                    users.add(use);
+                    product rest1 = dataSnapshot.toObject(product.class);
+                    products.add(rest1);
                 }
 
-                adapter.notifyDataSetChanged();
+                adapter2.notifyDataSetChanged();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getActivity(), "No data available", Toast.LENGTH_SHORT).show();
-                Log.e("AllDataFragment", e.getMessage());
+                Log.e("AllData2Fragment", e.getMessage());
             }
         });
-       /* gotoAddData.findViewById(R.id.AddDataAllData);
-        gotoAddData.setOnClickListener(new View.OnClickListener() {
+       /* gotoAddData2.findViewById(R.id.AddDataAllData);
+        gotoAddData2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GotoAddData();
+                GotoAddData2();
             }'
         });*/
 
 
     }
-
+    private void GotoAddData2() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
+        ft.commit();
+    }
 }
+
 

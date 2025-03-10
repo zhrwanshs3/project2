@@ -1,20 +1,39 @@
 package com.example.project2.productfile1;
 
 public class product {
-    @Override
-    public String toString() {
-        return "product{" +
-                "Price=" + Price +
-                ", Type='" + Type + '\'' +
-                ", NameProduct='" + NameProduct + '\'' +
-                ", NumberProduct=" + NumberProduct +
-                '}';
-    }
 
     private String Type;
     private String  Price;
     private String NameProduct;
     private String NumberProduct;
+    private String image;
+
+    @Override
+    public String toString() {
+        return "product{" +
+                "Type='" + Type + '\'' +
+                ", Price='" + Price + '\'' +
+                ", NameProduct='" + NameProduct + '\'' +
+                ", NumberProduct='" + NumberProduct + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
+
+    public product(String type, String numberProduct, String nameProduct, String price, String image) {
+        Type = type;
+        NumberProduct = numberProduct;
+        NameProduct = nameProduct;
+        Price = price;
+        this.image = image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
 
     public String getPrice() {
         return Price;
@@ -45,17 +64,6 @@ public class product {
     public void setNumberProduct(String numberProduct){
         NumberProduct = numberProduct;
     }
-
-
-
-
-    public product(String price, String type, String nameProduct,String numberProduct) {
-        Price = price;
-        Type = type;
-        NameProduct = nameProduct;
-        NumberProduct=numberProduct;
-    }
-
 
 
 }

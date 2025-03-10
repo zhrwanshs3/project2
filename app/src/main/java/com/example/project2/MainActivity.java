@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.project2.Loginfile1.LoginFragment;
 import com.example.project2.Signupfile1.SignupFragment;
+import com.example.project2.userfile1.AllData1Fragment;
+import com.example.project2.userfile1.addDataFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void gotoLogin() {
-        FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain,new LoginFragment());
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new LoginFragment());
+        ft.commit();
+    }
+    private void gotoAddFragment() {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new addDataFragment());
+        ft.commit();
+    }
+
+    private void gotoAllRestsFragment() {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new AllData1Fragment());
         ft.commit();
     }
 }

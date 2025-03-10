@@ -20,8 +20,8 @@
             android:text="Signup"
             android:textColor="@color/white"
             android:textColorLink="#08571F"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
             app:rippleColor="#2B2D30"
             app:strokeColor="#430D0D"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="89dp"
-            android:layout_marginEnd="3dp"
+            android:layout_marginEnd="2dp"
             android:ems="10"
             android:hint="password..."
             android:inputType="textPassword"
@@ -78,6 +78,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/goToLoginFRomSig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="24dp"
+            android:text="Login "
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            tools:ignore="MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

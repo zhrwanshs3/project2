@@ -29,12 +29,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
 
     @NonNull
+    @Override
 
     public UserAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.user_item, parent, false);
         return new UserAdapter.MyViewHolder(v);
     }
 
+    @Override
 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = userList.get(position);
@@ -44,6 +46,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         holder.etName.setText(user.getName());
     }
 
+    @Override
 
     public int getItemCount() {
         return userList.size();

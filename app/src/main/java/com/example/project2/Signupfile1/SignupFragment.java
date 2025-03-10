@@ -11,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
+import com.example.project2.Loginfile1.LoginFragment;
 import com.example.project2.R;
+import com.example.project2.productfile1.AddData2Fragment;
 import com.example.project2.userfile1.addDataFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +33,10 @@ public class SignupFragment extends Fragment {
     private EditText etUsername, etPassword;
     private Button btnSignup;
     private FirebaseServices fbs;
+    private EditText etId;
+    private TextView Login;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -91,38 +98,53 @@ public class SignupFragment extends Fragment {
         etUsername = getView().findViewById(R.id.editTextTextEmailAddress2);
         etPassword = getView().findViewById(R.id.editTextTextPassword);
         btnSignup = getView().findViewById(R.id.button);
-        btnSignup.setOnClickListener(new View.OnClickListener() {
+        Login = getView().findViewById(R.id.goToLoginFRomSig);
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Data validation
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-                if (username.isEmpty() && password.isEmpty()) {
-                    Toast.makeText(getActivity(), "Some fields are empty!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                //signUp procedure
-                fbs.getAuth().createUserWithEmailAndPassword(username, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(getActivity(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
-                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                        transaction.replace(R.id.main, new addDataFragment());
-                        transaction.commit();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main, new LoginFragment());
+                transaction.commit();
 
             }
         });
+
+        btnSignup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+            //Data validation
+            String username = etUsername.getText().toString();
+            String password = etPassword.getText().toString();
+            if (username.isEmpty() && password.isEmpty()) {
+                Toast.makeText(getActivity(), "Some fields are empty!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            //signUp procedure
+            fbs.getAuth().createUserWithEmailAndPassword(username, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                @Override
+
+                public void onSuccess(AuthResult authResult) {
+                    Toast.makeText(getActivity(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
+                    gotoAddData2();
+                    return;
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+            }
+        });
+
+    }
+    private void gotoAddData2() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
+        ft.commit();
+
 
     }
 }

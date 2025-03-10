@@ -4,16 +4,19 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
 import com.example.project2.R;
+import com.example.project2.Signupfile1.SignupFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -26,6 +29,11 @@ public class ForgotPasswordFragment extends Fragment {
     private FirebaseServices fbs;
     private EditText etEmail;
     private Button btnReset;
+    private TextView signupf;
+    private TextView LoginF;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,6 +91,36 @@ public class ForgotPasswordFragment extends Fragment {
         fbs=FirebaseServices.getInstance();
         etEmail=getView().findViewById(R.id.editEmailForgotPassword);
         btnReset=getView().findViewById(R.id.btnResetForgotPassword);
+        LoginF=getView().findViewById(R.id.etGotoLoginfromPass);
+        signupf=getView().findViewById(R.id.etGoToSigUpFromPass);
+        LoginF.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction= getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main ,new LoginFragment());
+                transaction.commit();
+            }
+        });
+        signupf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction= getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main ,new SignupFragment());
+                transaction.commit();
+            }
+        });
+        LoginF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction= getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main ,new LoginFragment());
+                transaction.commit();
+            }
+        });
+
+
+
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,12 +131,9 @@ public class ForgotPasswordFragment extends Fragment {
                 fbs.getAuth().sendPasswordResetEmail(etEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful())
-                        {
+                        if (task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Email sent!", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -107,5 +142,4 @@ public class ForgotPasswordFragment extends Fragment {
             }
         });
     }
-
 }

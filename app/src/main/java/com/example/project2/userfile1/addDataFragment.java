@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
+import com.example.project2.Loginfile1.ForgotPasswordFragment;
+import com.example.project2.Loginfile1.LoginFragment;
 import com.example.project2.R;
+import com.example.project2.Signupfile1.SignupFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -116,16 +121,27 @@ public class addDataFragment extends Fragment {
                 fbs.getFire().collection("users").add(us).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getActivity(), "Failure!", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(getActivity(), "success!", Toast.LENGTH_SHORT).show();
+                       gotoِAllData();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        Toast.makeText(getActivity(), "faild", Toast.LENGTH_SHORT).show();
                     }
                 });
 
             }
         });
     }
+    private void gotoِAllData() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new AllData1Fragment());
+        ft.commit();
+
+
+    }
+
 }
