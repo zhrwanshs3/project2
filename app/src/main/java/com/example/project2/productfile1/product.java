@@ -20,10 +20,10 @@ public class product {
     }
 
     public product(String type, String numberProduct, String nameProduct, String price, String image) {
-        Type = type;
-        NumberProduct = numberProduct;
-        NameProduct = nameProduct;
-        Price = price;
+        this.Type = type;
+        this.NumberProduct = numberProduct;
+        this.NameProduct = nameProduct;
+        this.Price = price;
         this.image = image;
     }
 

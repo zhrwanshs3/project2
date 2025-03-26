@@ -24,6 +24,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LoginFragment#newInstance} factory method to
@@ -144,7 +146,7 @@ Linkuser= getView().findViewById(R.id.linkuser);
 
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(getActivity(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
-                        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                        FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
                         ft.commit();
                     }

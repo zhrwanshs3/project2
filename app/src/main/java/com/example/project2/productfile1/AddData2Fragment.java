@@ -165,8 +165,6 @@ public class AddData2Fragment extends Fragment {
         if (requestCode == GALLARY_REQUEST_CODE && resultCode == getActivity().RESULT_OK && data != null) {
             Uri selectedImageUri = data.getData();
             img.setImageURI(selectedImageUri);
-
-
             Utils.getInstance().uploadImage(getActivity(), selectedImageUri);
         }
    }
