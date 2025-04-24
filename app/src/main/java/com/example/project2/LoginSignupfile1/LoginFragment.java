@@ -1,4 +1,4 @@
-package com.example.project2.Loginfile1;
+package com.example.project2.LoginSignupfile1;
 
 import android.os.Bundle;
 
@@ -16,15 +16,11 @@ import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
 import com.example.project2.R;
-import com.example.project2.Signupfile1.SignupFragment;
 import com.example.project2.productfile1.AddData2Fragment;
-import com.example.project2.productfile1.AllData2Fragment;
 import com.example.project2.userfile1.addDataFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
-
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.

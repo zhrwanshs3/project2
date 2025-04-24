@@ -1,22 +1,17 @@
 package com.example.project2.productfile1;
 
+import android.os.Parcel;
+
 public class product {
 
     private String Type;
-    private String  Price;
+    private String Price;
     private String NameProduct;
     private String NumberProduct;
     private String image;
 
-    @Override
-    public String toString() {
-        return "product{" +
-                "Type='" + Type + '\'' +
-                ", Price='" + Price + '\'' +
-                ", NameProduct='" + NameProduct + '\'' +
-                ", NumberProduct='" + NumberProduct + '\'' +
-                ", image='" + image + '\'' +
-                '}';
+    public product() {
+
     }
 
     public product(String type, String numberProduct, String nameProduct, String price, String image) {
@@ -58,15 +53,29 @@ public class product {
     public void setNameProduct(String nameProduct) {
         NameProduct = nameProduct;
     }
+
     public String getNumberProduct() {
         return NumberProduct;
     }
-    public void setNumberProduct(String numberProduct){
+
+    public void setNumberProduct(String numberProduct) {
         NumberProduct = numberProduct;
+    }
+
+    @Override
+    public String toString() {
+        return "product{" +
+                "Type='" + Type + '\'' +
+                ", Price='" + Price + '\'' +
+                ", NameProduct='" + NameProduct + '\'' +
+                ", NumberProduct='" + NumberProduct + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 
 
 }
+
 
 
 

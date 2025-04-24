@@ -1,4 +1,4 @@
-package com.example.project2.Loginfile1;
+package com.example.project2.LoginSignupfile1;
 
 import android.os.Bundle;
 
@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
 import com.example.project2.R;
-import com.example.project2.Signupfile1.SignupFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 

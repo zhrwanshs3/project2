@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#70A03F"
     tools:context=".Home_Fragment">
 
 
@@ -14,84 +15,53 @@
         app:layout_constraintStart_toEndOf="@+id/imageView12">
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/imageView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="51dp"
-            android:src="@drawable/__2025_02_05_120151"
-            app:layout_constraintBottom_toTopOf="@+id/imageView15"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp"
-            tools:ignore="MissingConstraints" />
+            android:src="@drawable/screenshot_2025_04_19_151220"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="skin care"
+            android:textColor="#C192A5"
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="157dp"
+            tools:layout_editor_absoluteY="182dp" />
+
+        <ImageButton
+            android:id="@+id/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/screenshot_2025_04_21_143743"
+            tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="619dp" />
 
         <ImageView
             android:id="@+id/imageView11"
-            android:layout_width="0dp"
-            android:layout_height="163dp"
-            android:layout_marginEnd="17dp"
-            android:src="@drawable/__2025_02_05_120012"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView12"
-            tools:layout_editor_absoluteY="498dp"
-            tools:ignore="MissingConstraints" />
+            android:layout_width="302dp"
+            android:layout_height="214dp"
+            android:src="@drawable/__2025_02_05_104606"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="55dp" />
 
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="70dp"
-            android:src="@drawable/__2025_02_05_115844"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/__2025_02_05_115722"
-            app:layout_constraintBottom_toTopOf="@+id/imageView12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView14"
-            app:layout_constraintTop_toBottomOf="@+id/imageView15" />
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="0dp"
-            android:layout_height="163dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="24dp"
-            android:src="@drawable/__2025_02_05_115614"
-            app:layout_constraintEnd_toStartOf="@+id/imageView13"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="318dp"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="174dp"
-            android:layout_height="178dp"
-            android:src="@drawable/__2025_02_05_115339"
-            tools:layout_editor_absoluteX="224dp"
-            tools:layout_editor_absoluteY="124dp"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView16"
+        <TextView
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/__2025_02_05_115233"
-            app:layout_constraintEnd_toStartOf="@+id/imageView15"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="124dp"
+            android:text="START  SHOPPING"
+            android:textColor="#6F9F3F"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="376dp"
             tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

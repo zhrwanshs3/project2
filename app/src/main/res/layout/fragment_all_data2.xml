@@ -6,8 +6,9 @@
     tools:context=".productfile1.AllData2Fragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvProductsFragment"
+        android:id="@+id/RecyclerViewProduct"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </FrameLayout>

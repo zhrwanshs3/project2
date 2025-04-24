@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imgpro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/__2025_02_26_171807" />
 
-        <ImageView
-            android:id="@+id/imgpro"
-            android:layout_width="match_parent"
-            android:layout_height="173dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/__2025_02_26_171807" />
+    <TextView
+        android:id="@+id/etnameProductProductItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name product"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingTop="8dp" />
 
-        <TextView
-            android:id="@+id/etnameProductProductItem"
-            android:layout_width="match_parent"
-            android:layout_height="141dp"
-            android:layout_weight="1" />
+    <TextView
+        android:id="@+id/etTypeProductItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/etTypeProductItem"
-            android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:layout_weight="1" />
+    <TextView
+        android:id="@+id/etNumberProductItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="number product"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/etNumberProductItem"
-            android:layout_width="426dp"
-            android:layout_height="197dp"
-            android:layout_weight="1" />
+    <TextView
+        android:id="@+id/etPriceProductItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="price"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:paddingBottom="8dp" />
 
-        <TextView
-            android:id="@+id/etPriceProductItem"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

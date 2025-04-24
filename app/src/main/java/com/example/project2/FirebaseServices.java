@@ -9,6 +9,7 @@ import com.example.project2.userfile1.UserCallback;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,6 +33,7 @@ public class FirebaseServices {
 
 
 
+
     public Uri getSelectedImageURL() {
         return selectedImageURL;
     }
@@ -45,6 +47,7 @@ public class FirebaseServices {
         auth=FirebaseAuth.getInstance();
         fire=FirebaseFirestore.getInstance();
         storage=FirebaseStorage.getInstance();
+
         getCurrentObjectUser(new UserCallback() {
             @Override
             public void onUserLoaded(User user) {
@@ -70,6 +73,8 @@ public class FirebaseServices {
     public FirebaseStorage getStorage() {
         return storage;
     }
+
+
 
     public  static FirebaseServices getInstance(){
         if (instance==null){
@@ -126,54 +131,11 @@ public class FirebaseServices {
         this.currentUser = currentUser;
     }
 
-    public boolean updateUser(User user)
-    {
-        final boolean[] flag = {false};
-        // Reference to the collection
-        String collectionName = "users";
+    public boolean updateUser(User user) {
+        return false;
+    }
 
-        String lastNameFieldName = "lastName";
-        String lastNameValue = user.getLastname();
-        String usernameFieldName = "username";
-        String usernameValue = user.getName();
-        String addressFieldName = "address";
-        String addressValue = user.getLocation();
-        String phoneFieldName = "phone";
-        String phoneValue = user.getPhone();
+    public void getUserDataByPhone(String phone, OnSuccessListener<QueryDocumentSnapshot> age, OnFailureListener onFailureListener) {
 
-
-        // Create a query for documents based on a specific field
-        Query query = fire.collection(collectionName).
-                whereEqualTo(usernameFieldName, usernameValue);
-
-        // Execute the query
-        query.get()
-                .addOnSuccessListener((QuerySnapshot querySnapshot) -> {
-                    for (QueryDocumentSnapshot document : querySnapshot) {
-                        // Get a reference to the document
-                        DocumentReference documentRef = document.getReference();
-
-                        // Update specific fields of the document
-                        documentRef.update(
-
-                                        lastNameFieldName, lastNameValue,
-                                        usernameFieldName, usernameValue,
-                                        addressFieldName, addressValue,
-                                        phoneFieldName, phoneValue
-                                )
-                                .addOnSuccessListener(aVoid -> {
-
-                                    flag[0] = true;
-                                })
-                                .addOnFailureListener(e -> {
-                                    System.err.println("Error updating document: " + e);
-                                });
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    System.err.println("Error getting documents: " + e);
-                });
-
-        return flag[0];
     }
 }

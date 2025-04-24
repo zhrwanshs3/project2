@@ -9,8 +9,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.project2.Loginfile1.LoginFragment;
-import com.example.project2.Signupfile1.SignupFragment;
+import com.example.project2.LoginSignupfile1.LoginFragment;
+import com.example.project2.LoginSignupfile1.SignupFragment;
 import com.example.project2.userfile1.AllData1Fragment;
 import com.example.project2.userfile1.addDataFragment;
 

@@ -5,12 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".Loginfile1.LoginFragment">
+    tools:context=".LoginSignupfile1.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#71A13F">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/screenshot_2025_04_19_151220"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <EditText
             android:id="@+id/etpasswordlogin"
@@ -58,8 +67,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginBottom="28dp"
-            android:background="#664FA3"
+
             android:text="Login"
+            android:backgroundTint="#DDA4BE"
             app:layout_constraintBottom_toTopOf="@+id/gotoForgetfromLogin"
             app:layout_constraintStart_toStartOf="@+id/gotoForgetfromLogin" />
 
@@ -86,10 +96,10 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="34dp"
+            android:layout_width="284dp"
+            android:layout_height="115dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="52dp"
             android:src="@drawable/__2025_02_05_104606"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
