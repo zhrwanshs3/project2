@@ -13,19 +13,15 @@ import android.widget.EditText;
 import com.example.project2.userfile1.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.auth.FirebaseAuth;
-
-import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SittingFragment#newInstance} factory method to
+ * Use the {@link SettingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SittingFragment extends Fragment {
-    private EditText name,age;
+public class SettingFragment extends Fragment {
+    private EditText name,phone;
     private FirebaseServices fbs ;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +32,7 @@ public class SittingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SittingFragment() {
+    public SettingFragment() {
         // Required empty public constructor
     }
 
@@ -49,8 +45,8 @@ public class SittingFragment extends Fragment {
      * @return A new instance of fragment SittingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SittingFragment newInstance(String param1, String param2) {
-        SittingFragment fragment = new SittingFragment();
+    public static SettingFragment newInstance(String param1, String param2) {
+        SettingFragment fragment = new SettingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,24 +73,24 @@ public class SittingFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        coneect();
+        connect();
     }
-    public void coneect ()
+
+    public void connect()
     {
         name=getView().findViewById(R.id.etNamePr);
-        age=getView().findViewById(R.id.etAgePr);
+        phone=getView().findViewById(R.id.etPhonePr);
         fbs=new FirebaseServices();
         User user =fbs.getCurrentUser();
         if (user != null) {
-            String phone = user.getPhone();
-            String name1 = getNameFromEmail(phone);
+            String phone1 = user.getPhone();
+            String name1 = getNameFromEmail(phone1);
             name.setText(name1);
-            fbs.getUserDataByPhone(phone, new OnSuccessListener<QueryDocumentSnapshot>() {
+            fbs.getUserDataByPhone(phone1, new OnSuccessListener<QueryDocumentSnapshot>() {
                 @Override
                 public void onSuccess(QueryDocumentSnapshot queryDocumentSnapshot) {
 
-
-                    age.setText(queryDocumentSnapshot.getString("age"));
+                    phone.setText(queryDocumentSnapshot.getString("phone"));
                 }
             }, new OnFailureListener() {
                 @Override

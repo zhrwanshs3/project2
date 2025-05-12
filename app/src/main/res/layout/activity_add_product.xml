@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#70A03F"
+    tools:context=".AddProductActivity">
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="421dp"
+            android:layout_height="875dp"
+            android:src="@drawable/screenshot_2025_04_19_151220"
+            app:layout_constraintBaseline_toBaselineOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/etType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:hint="Type"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/etNumber"
+            app:layout_constraintStart_toStartOf="@+id/etnameProduct"
+            app:layout_constraintTop_toBottomOf="@+id/etnameProduct"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etnameProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginBottom="22dp"
+            android:ems="10"
+            android:hint="Name Product"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/etType"
+            app:layout_constraintStart_toStartOf="@+id/imageViewProfile"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewProfile"
+            tools:ignore="DuplicateIds,MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:ems="10"
+            android:hint="Number"
+            android:inputType="number"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/etPrice"
+            app:layout_constraintStart_toStartOf="@+id/etType"
+            app:layout_constraintTop_toBottomOf="@+id/etType"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="33dp"
+            android:ems="10"
+            android:hint="Price"
+            android:inputType="numberSigned"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd2"
+            app:layout_constraintStart_toStartOf="@+id/etNumber"
+            app:layout_constraintTop_toBottomOf="@+id/etNumber"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="6dp"
+            android:background="#71A13F"
+            android:src="@drawable/__2025_02_05_104606"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btnAdd2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:text="Add"
+            android:backgroundTint="#DDA4BE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPrice"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageViewProfile"
+            android:layout_width="243dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="36dp"
+            android:src="@drawable/__2025_02_26_171807"
+            app:layout_constraintBottom_toTopOf="@+id/etnameProduct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            tools:ignore="MissingConstraints" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

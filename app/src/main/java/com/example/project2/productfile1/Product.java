@@ -1,8 +1,6 @@
 package com.example.project2.productfile1;
 
-import android.os.Parcel;
-
-public class product {
+public class Product {
 
     private String Type;
     private String Price;
@@ -10,11 +8,12 @@ public class product {
     private String NumberProduct;
     private String image;
 
-    public product() {
+
+    public Product() {
 
     }
 
-    public product(String type, String numberProduct, String nameProduct, String price, String image) {
+    public Product(String type, String numberProduct, String nameProduct, String price, String image) {
         this.Type = type;
         this.NumberProduct = numberProduct;
         this.NameProduct = nameProduct;

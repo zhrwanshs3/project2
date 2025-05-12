@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CartProductFragment">
+    android:background="@drawable/screenshot_2025_04_19_151220"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/screenshot_2025_04_19_134312" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="509dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/totalTextView"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:paddingBottom="10dp"
+        android:text="sum: 0 ₪"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DDA4BE"
+        android:text="Check out"
+        android:textColor="@color/white"
+        android:textColorLink="#08571F"
+        app:rippleColor="#2B2D30"
+        app:strokeColor="#430D0D"/>
+
+</LinearLayout>

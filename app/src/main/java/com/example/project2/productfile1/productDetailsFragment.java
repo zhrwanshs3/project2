@@ -3,7 +3,6 @@ package com.example.project2.productfile1;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
 import com.example.project2.R;
+import com.example.project2.cartfile1.CartManager;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -24,10 +24,10 @@ import com.squareup.picasso.Picasso;
  */
 public class productDetailsFragment extends Fragment {
     private FirebaseServices fbs;
-    private     product product;
+    private Product product;
     private ImageView imageView3;
     private ImageButton imgb;
-    private ImageButton ad;
+    private ImageButton addToCart;
     private TextView Datialsnameproduct,DatiailsMethod, DetilsPrice;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,7 +88,8 @@ public class productDetailsFragment extends Fragment {
         DatiailsMethod = getView().findViewById(R.id.DatiailsMethod);
         DetilsPrice = getView().findViewById(R.id.DetilsPrice);
 
-        ad=getView().findViewById(R.id.btnadDatial);/*
+        addToCart=getView().findViewById(R.id.btnadDatial);
+        /*
         ad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,15 +111,25 @@ public class productDetailsFragment extends Fragment {
         });*/
         if (product != null) {
             Datialsnameproduct.setText(product.getNameProduct());
-            DetilsPrice.setText(product.getNameProduct());
+            DetilsPrice.setText(product.getPrice() + " ₪");
             DatiailsMethod.setText(product.getType());
-            if (product.getImage() == null || product.getImage().isEmpty())
-                Picasso.get().load(R.drawable.screenshot_2025_04_19_153315).into(imageView3);
-            else
+                if (product.getImage() == null || product.getImage().isEmpty()) {
+                    Picasso.get().load(R.drawable.screenshot_2025_04_19_153315).into(imageView3);
+                }else{
                 Picasso.get().load(product.getImage()).into(imageView3);
-
+            }
         }
-    }
+        addToCart.setOnClickListener(v -> {
+            if (product == null) {
+                Toast.makeText(getContext(), "المنتج غير متوفر", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-
+            CartManager.getInstance().addToCart(product);
+            Toast.makeText(getContext(), "تمت إضافة المنتج إلى السلة", Toast.LENGTH_SHORT).show();
+   });
 }
+}
+
+
+

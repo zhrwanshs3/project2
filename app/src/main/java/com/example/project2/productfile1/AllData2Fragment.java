@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class AllData2Fragment extends Fragment {
     private FirebaseServices fbs;
-    private ArrayList<product> products;
+    private ArrayList<Product> products;
     private RecyclerView rvProducts;
     private ProductAdapter adapter2;
     private TextView gotoAddData2;
@@ -109,7 +109,7 @@ public class AllData2Fragment extends Fragment {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (DocumentSnapshot dataSnapshot : queryDocumentSnapshots.getDocuments()) {
-                            product rest1 = dataSnapshot.toObject(product.class);
+                            Product rest1 = dataSnapshot.toObject(Product.class);
                             products.add(rest1);
                         }
                         adapter2.notifyDataSetChanged();

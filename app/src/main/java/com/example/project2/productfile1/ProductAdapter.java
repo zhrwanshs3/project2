@@ -1,7 +1,6 @@
 package com.example.project2.productfile1;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +18,17 @@ import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
     private Context context;
-    private ArrayList<product> products;
+    private ArrayList<Product> products;
     private FirebaseServices fbs;
     private OnItemClickListener itemClickListener;
 
-    public ProductAdapter(Context context1, ArrayList<product> proList) {
+    public ProductAdapter(Context context1, ArrayList<Product> proList) {
         this.context = context1;
         this.products = proList;
         this.fbs = FirebaseServices.getInstance();
     }
+
+
 
     @NonNull
     @Override
@@ -38,7 +39,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        product product = products.get(position);
+        Product product = products.get(position);
 
         if (product.getImage() == null || product.getImage().isEmpty()) {
             holder.imgp.setImageURI(null); // أو حط صورة افتراضية

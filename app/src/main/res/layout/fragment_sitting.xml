@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#71A13F"
     android:backgroundTint="#70A03F"
-    tools:context=".SittingFragment">
+    tools:context=".SettingFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,14 +23,14 @@
         <ImageView
             android:id="@+id/imageView16"
             android:layout_width="664dp"
-            android:layout_height="134dp"
+            android:layout_height="0dp"
             android:layout_marginTop="38dp"
-            android:layout_marginBottom="213dp"
+            android:layout_marginBottom="25dp"
             android:src="@drawable/__2025_02_05_104606"
-            app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
+            app:layout_constraintBottom_toTopOf="@+id/etNamePr"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="-128dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-128dp" />
 
         <EditText
             android:id="@+id/etNamePr"
@@ -40,21 +40,23 @@
             android:ems="10"
             android:inputType="text"
             android:text="Name"
-            app:layout_constraintBottom_toTopOf="@+id/etAgePr"
-            app:layout_constraintStart_toStartOf="@+id/etAgePr"
+            app:layout_constraintBottom_toTopOf="@+id/etPhonePr"
+            app:layout_constraintStart_toStartOf="@+id/etPhonePr"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/etAgePr"
+            android:id="@+id/etPhonePr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="382dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Age"
-            app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
+            android:text="phone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/btnUpdate"
+            app:layout_constraintTop_toBottomOf="@+id/etNamePr"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
@@ -63,13 +65,14 @@
             android:layout_height="0dp"
             android:layout_marginStart="62dp"
             android:layout_marginEnd="62dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="17dp"
             android:backgroundTint="#DDA4BE"
             android:text="Update Profile"
             app:layout_constraintBottom_toTopOf="@+id/btnLogout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView22"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/btnLogout"
@@ -83,7 +86,8 @@
             app:layout_constraintBottom_toTopOf="@+id/DeleteAccount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
+            app:layout_constraintTop_toBottomOf="@+id/btnUpdate"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/DeleteAccount"
@@ -97,7 +101,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+            app:layout_constraintTop_toBottomOf="@+id/btnLogout"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="69dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginBottom="265dp"
+            android:src="@drawable/screenshot_2025_04_19_134312"
+            app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

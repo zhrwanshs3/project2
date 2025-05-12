@@ -19,88 +19,96 @@
             android:layout_marginTop="60dp"
             android:src="@drawable/screenshot_2025_04_19_151220"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/etname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginBottom="23dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="28dp"
             android:ems="10"
             android:hint="Name"
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/etloction"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintBottom_toTopOf="@+id/etLastName"
+            app:layout_constraintEnd_toEndOf="@+id/etLastName"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/etloction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="23dp"
+            android:layout_marginBottom="27dp"
             android:ems="10"
             android:hint="Loction"
             android:inputType="textPostalAddress"
             android:minHeight="48dp"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/etPhone"
-            app:layout_constraintStart_toStartOf="@+id/etname"
-            app:layout_constraintTop_toBottomOf="@+id/etname" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLastName"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="37dp"
             android:ems="10"
             android:hint="Phone"
             android:inputType="phone"
             android:minHeight="48dp"
             android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/etLastName"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
             app:layout_constraintStart_toStartOf="@+id/etloction"
-            app:layout_constraintTop_toBottomOf="@+id/etloction" />
+            app:layout_constraintTop_toBottomOf="@+id/etloction"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="176dp"
-            android:text="Add"
             android:backgroundTint="#DDA4BE"
+            android:text="Add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+            app:layout_constraintTop_toBottomOf="@+id/etPhone"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/etLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="51dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="19dp"
             android:ems="10"
             android:hint="familyName"
             android:inputType="text"
             android:minHeight="48dp"
             android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-            app:layout_constraintEnd_toEndOf="@+id/etPhone"
-            app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+            app:layout_constraintBottom_toTopOf="@+id/etloction"
+            app:layout_constraintEnd_toEndOf="@+id/etloction"
+            app:layout_constraintTop_toBottomOf="@+id/etname"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="218dp"
             android:layout_height="0dp"
             android:layout_marginTop="36dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginBottom="42dp"
             android:src="@drawable/__2025_02_05_104606"
             app:layout_constraintBottom_toTopOf="@+id/etname"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

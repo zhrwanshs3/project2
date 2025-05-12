@@ -1,5 +1,6 @@
 package com.example.project2.LoginSignupfile1;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project2.AddProductActivity;
 import com.example.project2.FirebaseServices;
 import com.example.project2.R;
 import com.example.project2.productfile1.AddData2Fragment;
@@ -179,13 +181,11 @@ Linkuser= getView().findViewById(R.id.linkuser);
 
 
     }
-    private void gotoAddData2() {
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
-        ft.commit();
-
-
-    }
+    //private void gotoAddData2() {
+     //   FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+     //   ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
+       // ft.commit();
+  //  }
     private void gotoaddDataFragment() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new addDataFragment());
@@ -193,5 +193,10 @@ Linkuser= getView().findViewById(R.id.linkuser);
 
 
     }
+    private void gotoaddProductActivity() {
+        Intent intent=new Intent(getActivity(), AddProductActivity.class);
+        startActivity(intent);
+    }
 
-}
+
+    }

@@ -4,16 +4,16 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 
+import com.example.project2.productfile1.Product;
 import com.example.project2.userfile1.User;
 import com.example.project2.userfile1.UserCallback;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -30,9 +30,12 @@ public class FirebaseServices {
     private User currentUser;
     private StorageReference storageReference;
     private boolean userChangeFlag;
+    private ArrayList<Product> cartProducts;
+    private FirebaseDatabase database;
 
-
-
+    public ArrayList<Product> getCartProducts() {
+        return cartProducts;
+    }
 
     public Uri getSelectedImageURL() {
         return selectedImageURL;
@@ -47,7 +50,8 @@ public class FirebaseServices {
         auth=FirebaseAuth.getInstance();
         fire=FirebaseFirestore.getInstance();
         storage=FirebaseStorage.getInstance();
-
+        cartProducts = new ArrayList<>();
+        database=FirebaseDatabase.getInstance();
         getCurrentObjectUser(new UserCallback() {
             @Override
             public void onUserLoaded(User user) {
@@ -137,5 +141,10 @@ public class FirebaseServices {
 
     public void getUserDataByPhone(String phone, OnSuccessListener<QueryDocumentSnapshot> age, OnFailureListener onFailureListener) {
 
+    }
+
+
+    public DatabaseReference getRefernce(String path){
+        return database.getReference(path);
     }
 }
