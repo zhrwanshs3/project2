@@ -187,12 +187,14 @@ public class CheckoutFragment extends Fragment {
                 }
 
                 Map<String, Object> order = new HashMap<>();
-                order.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                order.put("timestamp", System.currentTimeMillis());
+                //order.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+               // order.put("timestamp", System.currentTimeMillis());
                 order.put("status", "pending");
                 order.put("customerName", name);
                 order.put("customerAddress", address);
                 order.put("customerPhone", phone);
+                order.put("totalPrice", CartManager.getInstance().getTotalPrice());
+
 
                 List<Map<String, Object>> productList = new ArrayList<>();
                 for (Product product : cartList) {
@@ -200,7 +202,7 @@ public class CheckoutFragment extends Fragment {
                     productMap.put("name", product.getNameProduct());
                     productMap.put("price", product.getPrice());
                     productMap.put("image", product.getImage());
-                    productMap.put("type", product.getType());
+                    productMap.put("numberProduct", product.getNumberProduct());
                     productList.add(productMap);
                 }
 
@@ -226,22 +228,23 @@ public class CheckoutFragment extends Fragment {
 
     private void displayCartItems() {
         StringBuilder itemsText = new StringBuilder();
-        double totalPrice = 0;
+        double totalPrice =  CartManager.getInstance().getTotalPrice();
+
 
         for (Product item : cartItems) {
             String name = item.getNameProduct();
-            String type = item.getType();
-            int quantity = parseInt(item.getNumberProduct());
+           // String type = item.getType();
+           // int quantity = parseInt(item.getNumberProduct());
             double price = parseDouble(item.getPrice());
-            double itemTotal = price * quantity;
+            double itemTotal = price; //* quantity;
 
             itemsText.append(name)
-                    .append(" (").append(type).append(")")
-                    .append(" x").append(quantity)
+                  //  .append(" (").append(type).append(")")
+                    //.append(" x").append(quantity)
                     .append(" - ₪").append(itemTotal)
                     .append("\n");
 
-            totalPrice += itemTotal;
+           // totalPrice += itemTotal;
         }
 
         cartItemsTextView.setText(itemsText.toString());
@@ -267,14 +270,14 @@ public class CheckoutFragment extends Fragment {
         for (Product item : cartItems) {
             Map<String, Object> map = new HashMap<>();
             map.put("productName", item.getNameProduct());
-            map.put("productType", item.getType());
+          //  map.put("productType", item.getType());
             map.put("price", item.getPrice());
             map.put("productImage", item.getImage());
-            map.put("productNumber", item.getNumberProduct());
+           // map.put("productNumber", item.getNumberProduct());
 
-            int quantity = parseInt(item.getNumberProduct());
+           // int quantity = parseInt(item.getNumberProduct());
             double price = parseDouble(item.getPrice());
-            double itemTotal = price * quantity;
+            double itemTotal = price; //* quantity;
             map.put("total", itemTotal);
 
             totalPrice += itemTotal;

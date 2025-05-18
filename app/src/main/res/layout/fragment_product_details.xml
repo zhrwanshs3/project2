@@ -45,8 +45,7 @@
         <TextView
             android:id="@+id/DatiailsMethod"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
             android:text="method"
             android:textColor="#333"
             android:textSize="16sp" />
