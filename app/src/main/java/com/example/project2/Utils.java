@@ -21,6 +21,15 @@ public class Utils {
 
     private FirebaseServices fbs;
     private String imageStr;
+    private MainActivity mainAct;
+
+    public MainActivity getMainAct() {
+        return mainAct;
+    }
+
+    public void setMainAct(MainActivity mainAct) {
+        this.mainAct = mainAct;
+    }
 
     public Utils()
     {

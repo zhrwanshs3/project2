@@ -14,11 +14,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
+import com.example.project2.Home_Fragment;
 import com.example.project2.R;
+import com.example.project2.SettingFragment;
+import com.example.project2.cartfile1.CartProductFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -32,6 +36,9 @@ public class AllData2Fragment extends Fragment {
     private RecyclerView rvProducts;
     private ProductAdapter adapter2;
     private TextView gotoAddData2;
+    private ImageButton b ;
+    private ImageButton linkcart;
+
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -74,6 +81,16 @@ public class AllData2Fragment extends Fragment {
         fbs = FirebaseServices.getInstance();
         fbs.setUserChangeFlag(false);
         products = new ArrayList<>();
+        b=getView().findViewById(R.id.backAllData2);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {gotoHome();}
+        });
+        linkcart=getView().findViewById(R.id.linkCart);
+        linkcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {gotoCartProduct();}
+        });
 
         rvProducts = view.findViewById(R.id.RecyclerViewProduct);
         adapter2 = new ProductAdapter(getActivity(), products);
@@ -91,15 +108,12 @@ public class AllData2Fragment extends Fragment {
                 productDetailsFragment cd = new productDetailsFragment();
                 cd.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.frmLyt, cd);
+                ft.replace(R.id.FrameLayoutMain, cd);
+                ft.addToBackStack(null);
                 ft.commit();
 
             }
 
-            @Override
-            public void OnItemClickL(int position) {
-
-            }
 
 
         });
@@ -135,9 +149,23 @@ public class AllData2Fragment extends Fragment {
     }
 
 
-    private void GotoAddData2() {
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
-        ft.commit();
+   // private void GotoAddData2() {
+   //     FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+   //     ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
+   //     ft.commit();
+   // }
+    private void gotoHome(){
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.FrameLayoutMain, new Home_Fragment());
+        transaction.commit();
+
     }
-}
+    private void gotoCartProduct(){
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.FrameLayoutMain, new CartProductFragment());
+        transaction.commit();
+
+    }
+
+
+    }

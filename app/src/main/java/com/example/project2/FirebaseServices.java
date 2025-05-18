@@ -4,6 +4,7 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 
+import com.example.project2.cartfile1.CartWrapper;
 import com.example.project2.productfile1.Product;
 import com.example.project2.userfile1.User;
 import com.example.project2.userfile1.UserCallback;
@@ -142,7 +143,20 @@ public class FirebaseServices {
     public void getUserDataByPhone(String phone, OnSuccessListener<QueryDocumentSnapshot> age, OnFailureListener onFailureListener) {
 
     }
+    public void saveCartToFirebase(ArrayList<Product> cartItems) {
+        if (auth.getCurrentUser() == null) return;
+        String userId = auth.getCurrentUser().getUid();
 
+        // كل مستخدم إله document باسمه، وفي داخله مجموعة cart
+        fire.collection("carts").document(userId)
+                .set(new CartWrapper(cartItems)) // نغلف القائمة داخل كائن ليسهل حفظها
+                .addOnSuccessListener(unused -> {
+                    // نجاح الحفظ - ممكن تعرضي رسالة
+                })
+                .addOnFailureListener(e -> {
+                    // فشل الحفظ - طباعة أو إشعار
+ });
+    }
 
     public DatabaseReference getRefernce(String path){
         return database.getReference(path);

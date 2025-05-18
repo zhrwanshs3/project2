@@ -9,7 +9,7 @@
     android:padding="16dp">
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/bactall"
         android:layout_width="85dp"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/screenshot_2025_04_19_134312" />
@@ -30,7 +30,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/paybtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#DDA4BE"

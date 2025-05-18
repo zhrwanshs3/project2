@@ -3,6 +3,7 @@ package com.example.project2.productfile1;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.project2.FirebaseServices;
 import com.example.project2.R;
 import com.example.project2.cartfile1.CartManager;
+import com.example.project2.cartfile1.CartProductFragment;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -26,9 +28,10 @@ public class productDetailsFragment extends Fragment {
     private FirebaseServices fbs;
     private Product product;
     private ImageView imageView3;
-    private ImageButton imgb;
+    private ImageView imgb;
     private ImageButton addToCart;
     private TextView Datialsnameproduct,DatiailsMethod, DetilsPrice;
+    private ImageView btncart;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,6 +68,7 @@ public class productDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+          //  product=getArguments().getParcelable("product");
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
@@ -83,12 +87,21 @@ public class productDetailsFragment extends Fragment {
     }
     public void connect() {
         fbs = new FirebaseServices();
+        imgb=getView().findViewById(R.id.imageButtonDetiails);
         imageView3 = getView().findViewById(R.id.imageView3);
         Datialsnameproduct = getView().findViewById(R.id.Datialsnameproduct);
         DatiailsMethod = getView().findViewById(R.id.DatiailsMethod);
         DetilsPrice = getView().findViewById(R.id.DetilsPrice);
+        btncart=getView().findViewById(R.id.gocartdet);
+        btncart.setOnClickListener(v -> {
+            FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+            ft.replace(R.id.FrameLayoutMain, new CartProductFragment());
+            ft.commit();
+        });
 
-        addToCart=getView().findViewById(R.id.btnadDatial);
+        addToCart = getView().findViewById(R.id.btnadDatial);
+
+        product=getArguments().getParcelable("product");
         /*
         ad.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,13 +126,14 @@ public class productDetailsFragment extends Fragment {
             Datialsnameproduct.setText(product.getNameProduct());
             DetilsPrice.setText(product.getPrice() + " ₪");
             DatiailsMethod.setText(product.getType());
-                if (product.getImage() == null || product.getImage().isEmpty()) {
-                    Picasso.get().load(R.drawable.screenshot_2025_04_19_153315).into(imageView3);
-                }else{
+            if (product.getImage() == null || product.getImage().isEmpty()) {
+                Picasso.get().load(R.drawable.screenshot_2025_04_19_153315).into(imageView3);
+            } else {
                 Picasso.get().load(product.getImage()).into(imageView3);
             }
         }
         addToCart.setOnClickListener(v -> {
+
             if (product == null) {
                 Toast.makeText(getContext(), "المنتج غير متوفر", Toast.LENGTH_SHORT).show();
                 return;
@@ -127,8 +141,14 @@ public class productDetailsFragment extends Fragment {
 
             CartManager.getInstance().addToCart(product);
             Toast.makeText(getContext(), "تمت إضافة المنتج إلى السلة", Toast.LENGTH_SHORT).show();
-   });
-}
+        });
+        imgb.setOnClickListener(v -> {
+            FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+            ft.replace(R.id.FrameLayoutMain, new AllData2Fragment());
+            ft.commit();
+        });
+    }
+
 }
 
 

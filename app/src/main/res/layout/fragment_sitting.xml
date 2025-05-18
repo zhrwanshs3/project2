@@ -14,107 +14,57 @@
 
         <ImageView
             android:id="@+id/imageView18"
-            android:layout_width="480dp"
-            android:layout_height="925dp"
+            android:layout_width="507dp"
+            android:layout_height="926dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="90dp"
             android:src="@drawable/screenshot_2025_04_19_151220"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBaseline_toBaselineOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView16"
+            app:layout_constraintHorizontal_bias="0.455"
+            app:layout_constraintStart_toStartOf="@+id/imageView16"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView16"
-            android:layout_width="664dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="38dp"
-            android:layout_marginBottom="25dp"
+            android:layout_width="288dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="53dp"
             android:src="@drawable/__2025_02_05_104606"
-            app:layout_constraintBottom_toTopOf="@+id/etNamePr"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-128dp" />
-
-        <EditText
-            android:id="@+id/etNamePr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name"
-            app:layout_constraintBottom_toTopOf="@+id/etPhonePr"
-            app:layout_constraintStart_toStartOf="@+id/etPhonePr"
-            app:layout_constraintTop_toBottomOf="@+id/imageView16"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <EditText
-            android:id="@+id/etPhonePr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="382dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="phone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/btnUpdate"
-            app:layout_constraintTop_toBottomOf="@+id/etNamePr"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="62dp"
-            android:layout_marginEnd="62dp"
-            android:layout_marginBottom="17dp"
-            android:backgroundTint="#DDA4BE"
-            android:text="Update Profile"
-            app:layout_constraintBottom_toTopOf="@+id/btnLogout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView22"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="65dp"
-            android:layout_marginEnd="65dp"
-            android:layout_marginBottom="21dp"
-            android:backgroundTint="#DBA3BD"
-            android:text="Log out"
-            app:layout_constraintBottom_toTopOf="@+id/DeleteAccount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnUpdate"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <Button
-            android:id="@+id/DeleteAccount"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="62dp"
-            android:layout_marginEnd="62dp"
-            android:layout_marginBottom="146dp"
-            android:backgroundTint="#AF0020"
-            android:text="Delete Account"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogout"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:layout_editor_absoluteX="93dp" />
 
         <ImageView
-            android:id="@+id/imageView22"
-            android:layout_width="69dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="95dp"
-            android:layout_marginBottom="265dp"
+            android:id="@+id/BacktoHome"
+            android:layout_width="57dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="67dp"
+            android:layout_marginBottom="89dp"
             android:src="@drawable/screenshot_2025_04_19_134312"
-            app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.693"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="148dp"
+            android:text="موقعنا الإلكتروني هو منصة متخصصة في العناية بالبشرة، مصمم لتقديم أفضل المنتجات والنصائح التي تساعد المستخدمين على العناية ببشرتهم بطريقة فعالة وآمنة. نهدف إلى توفير تجربة تسوق سهلة، موثوقة، ومخصصة لتلبية احتياجات كل نوع بشرة.  ✨ ماذا يقدم الموقع؟ 	•	🧴 مجموعة مختارة من منتجات العناية بالبشرة من علامات تجارية موثوقة. 	•	🧼 تفاصيل دقيقة لكل منتج تشمل المكونات، طريقة الاستخدام، ونوع البشرة المناسب له. 	•	🧑‍⚕ نصائح وإرشادات من مختصين لمساعدتك في اختيار الروتين المناسب لبشرتك. 	•	🛒 واجهة شراء سلسة تتيح لك إضافة المنتجات إلى السلة، متابعة الطلب، والدفع بطريقة آمنة. 	•	📱 تصميم متجاوب يعمل بكفاءة على الهاتف، التابلت، والكمبيوتر. "
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -15,10 +15,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.project2.AddProductActivity;
+import com.example.project2.Home_Fragment;
+import com.example.project2.productfile1.AddProductActivity;
 import com.example.project2.FirebaseServices;
+import com.example.project2.MainActivity;
 import com.example.project2.R;
-import com.example.project2.productfile1.AddData2Fragment;
+import com.example.project2.Utils;
 import com.example.project2.userfile1.addDataFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,6 +38,10 @@ public class LoginFragment extends Fragment {
     private FirebaseServices fbs;
     private TextView tvForgotPasswardLink;
     private TextView Linkuser;
+    private Utils utils;
+    private TextView linkproduct;
+    private TextView linkhome;
+
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -94,11 +100,14 @@ public class LoginFragment extends Fragment {
     public void connect() {
         //connecting components
         fbs = FirebaseServices.getInstance();
+        utils = Utils.getInstance();
         etUsername = getView().findViewById(R.id.etusernamelogin);
         etPassword = getView().findViewById(R.id.etpasswordlogin);
         btnLogin = getView().findViewById(R.id.button2);
         tvForgotPasswardLink=getView().findViewById(R.id.gotoForgetfromLogin);
 Linkuser= getView().findViewById(R.id.linkuser);
+        linkproduct= getView().findViewById(R.id.linkproduct);
+
 
         tvSignupLinkLogin = getView().findViewById(R.id.tvSignupLinkLogin);
         tvSignupLinkLogin.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +126,19 @@ Linkuser= getView().findViewById(R.id.linkuser);
             @Override
             public void onClick(View view) {
                 gotoaddDataFragment();
+            }
+        });
+        linkproduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoaddProductActivity();
+            }
+        });
+        linkhome = getView().findViewById(R.id.linkhome);
+        linkhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoHome();
             }
         });
 
@@ -144,9 +166,14 @@ Linkuser= getView().findViewById(R.id.linkuser);
 
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(getActivity(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
+                        utils.setMainAct((MainActivity) getActivity());
+                       // gotoaddProductActivity();
+                        gotoHome();
+
+                        /*
                         FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.FrameLayoutMain, new AddData2Fragment());
-                        ft.commit();
+                        ft.commit(); */
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -161,11 +188,11 @@ Linkuser= getView().findViewById(R.id.linkuser);
         });
     }
 
-    private void gotoAddDataFragment() {
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new addDataFragment());
-        ft.commit();
-    }
+   // private void gotoAddDataFragment() {
+    //    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+    //    ft.replace(R.id.FrameLayoutMain, new addDataFragment());
+   //     ft.commit();
+    //}
 
 
     private void gotoSignupFregment() {
@@ -196,6 +223,13 @@ Linkuser= getView().findViewById(R.id.linkuser);
     private void gotoaddProductActivity() {
         Intent intent=new Intent(getActivity(), AddProductActivity.class);
         startActivity(intent);
+    }
+    private void gotoHome(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new Home_Fragment());
+        ft.commit();
+
+
     }
 
 

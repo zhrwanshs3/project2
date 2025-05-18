@@ -4,11 +4,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.project2.userfile1.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,8 +24,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
  * create an instance of this fragment.
  */
 public class SettingFragment extends Fragment {
-    private EditText name,phone;
-    private FirebaseServices fbs ;
+
+    private ImageView backtoHome;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -76,39 +79,24 @@ public class SettingFragment extends Fragment {
         connect();
     }
 
-    public void connect()
-    {
-        name=getView().findViewById(R.id.etNamePr);
-        phone=getView().findViewById(R.id.etPhonePr);
-        fbs=new FirebaseServices();
-        User user =fbs.getCurrentUser();
-        if (user != null) {
-            String phone1 = user.getPhone();
-            String name1 = getNameFromEmail(phone1);
-            name.setText(name1);
-            fbs.getUserDataByPhone(phone1, new OnSuccessListener<QueryDocumentSnapshot>() {
-                @Override
-                public void onSuccess(QueryDocumentSnapshot queryDocumentSnapshot) {
+    public void connect() {
 
-                    phone.setText(queryDocumentSnapshot.getString("phone"));
-                }
-            }, new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
 
-                }
-            });
-        };
+        backtoHome = getView().findViewById(R.id.BacktoHome);
+        backtoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoHome();
+            }
+        });
 
 
     }
-    public static String getNameFromEmail(String email) {
-        if (email == null || !email.contains("@"))
-            return "Invalid email";
-        String namePart = email.split("@")[0];
-        return namePart;
+    private void gotoHome() {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.main, new Home_Fragment());
+        transaction.commit();
+
+
     }
-
-
 }
-

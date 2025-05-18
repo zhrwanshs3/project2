@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.project2.LoginSignupfile1.LoginFragment;
 import com.example.project2.LoginSignupfile1.SignupFragment;
+import com.example.project2.productfile1.AllData2Fragment;
 import com.example.project2.userfile1.AllData1Fragment;
 import com.example.project2.userfile1.addDataFragment;
 
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-
     private void gotoLogin() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void gotoAllRestsFragment() {
+    private void gotoAllData2Fragment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain,new AllData1Fragment());
+        ft.replace(R.id.FrameLayoutMain,new AllData2Fragment());
         ft.commit();
     }
 }

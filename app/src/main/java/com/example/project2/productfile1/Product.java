@@ -1,8 +1,11 @@
 package com.example.project2.productfile1;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    private String Type;
+public class Product implements Parcelable {
+
+    private String type;
     private String Price;
     private String NameProduct;
     private String NumberProduct;
@@ -14,7 +17,7 @@ public class Product {
     }
 
     public Product(String type, String numberProduct, String nameProduct, String price, String image) {
-        this.Type = type;
+        this.type = type;
         this.NumberProduct = numberProduct;
         this.NameProduct = nameProduct;
         this.Price = price;
@@ -34,15 +37,15 @@ public class Product {
     }
 
     public void setPrice(String price) {
-        Price = price;
+        this.Price = price;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getNameProduct() {
@@ -64,12 +67,44 @@ public class Product {
     @Override
     public String toString() {
         return "product{" +
-                "Type='" + Type + '\'' +
+                "Type='" + type + '\'' +
                 ", Price='" + Price + '\'' +
                 ", NameProduct='" + NameProduct + '\'' +
                 ", NumberProduct='" + NumberProduct + '\'' +
                 ", image='" + image + '\'' +
                 '}';
+    }
+    protected Product(Parcel in){
+         type=in.readString();
+         Price=in.readString();
+         NameProduct=in.readString();
+         NumberProduct=in.readString();
+         image=in.readString();
+}
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(type);
+        dest.writeString(Price);
+        dest.writeString(NameProduct);
+        dest.writeString(NumberProduct);
+        dest.writeString(image);
     }
 
 

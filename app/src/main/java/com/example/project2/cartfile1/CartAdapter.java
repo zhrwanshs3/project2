@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project2.R;
 import com.example.project2.productfile1.Product;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -44,7 +45,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         holder.nameTextView.setText(product.getNameProduct());
         holder.priceTextView.setText(product.getPrice() + " ₪");
-        holder.imageView.setImageResource(Integer.parseInt(product.getImage()));
+      //  holder.imageView.setImageResource(Integer.parseInt(product.getImage()));
+        Picasso.get().load(product.getImage()).into(holder.imageView);
 
         holder.removeButton.setOnClickListener(v -> {
             CartManager.getInstance().removeItem(position);

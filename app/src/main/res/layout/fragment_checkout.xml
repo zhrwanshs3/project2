@@ -14,7 +14,7 @@
 
         <!-- بيانات العميل -->
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/backtocart1"
             android:layout_width="78dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/screenshot_2025_04_19_134312" />
@@ -83,7 +83,7 @@
 
         <!-- زر تأكيد الطلب -->
         <Button
-            android:id="@+id/confirmOrderButton"
+            android:id="@+id/btnPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"

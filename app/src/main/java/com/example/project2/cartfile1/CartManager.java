@@ -8,10 +8,10 @@ public class CartManager {
 
     // Singleton
     private static CartManager instance;
-
-    private final List<Product> cartItems = new ArrayList<>();
+    private  List<Product> cartItems ;
 
     private CartManager() {
+        cartItems=new ArrayList<>();
         // private constructor to prevent instantiation
     }
 
@@ -51,5 +51,8 @@ public class CartManager {
     // تفريغ السلة
     public void clearCart() {
         cartItems.clear();
+    }
+    public List<Product> getCartProduct(){
+        return cartItems;
     }
 }

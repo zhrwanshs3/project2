@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -44,7 +45,7 @@
         <TextView
             android:id="@+id/DatiailsMethod"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
             android:layout_marginTop="8dp"
             android:text="method"
             android:textColor="#333"
@@ -56,5 +57,12 @@
             android:layout_height="wrap_content"
             android:src="@drawable/__2025_05_08_140150"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/gocartdet"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/__2025_05_12_140508" />
+
     </LinearLayout>
 </ScrollView>

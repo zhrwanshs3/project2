@@ -81,10 +81,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public interface OnItemClickListener {
         void onItemClick(int position);
 
-        void OnItemClickL(int position);
+
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.itemClickListener = listener;
-    }
+}
 }

@@ -48,7 +48,7 @@
             android:src="@drawable/screenshot_2025_04_21_143743"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/START"
+            app:layout_constraintTop_toBottomOf="@+id/linkall"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
         <ImageView
@@ -80,7 +80,7 @@
 
         <Button
 
-            android:id="@+id/START"
+            android:id="@+id/linkall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="65dp"

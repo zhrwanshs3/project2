@@ -1,12 +1,19 @@
 package com.example.project2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.example.project2.productfile1.AddProductActivity;
+import com.example.project2.productfile1.AllData2Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +21,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Home_Fragment extends Fragment {
+    private Button linkall;
+    private ImageView settingbtn;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,4 +70,38 @@ public class Home_Fragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_, container, false);
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        connect();
+    }
+
+    private void connect() {
+        linkall=getView().findViewById(R.id.linkall);
+        linkall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoAllData2();
+            }
+        });
+        settingbtn=getView().findViewById(R.id.settingBtn);
+        settingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {gotoSetting();}
+        });
+
+    }
+    private void gotoAllData2() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new AllData2Fragment());
+        ft.commit();
+    }
+    private void gotoSetting() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new SettingFragment());
+        ft.commit();
+    }
+
+
+
 }
