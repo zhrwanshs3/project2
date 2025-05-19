@@ -35,12 +35,12 @@ import java.util.Map;
 
 public class CheckoutFragment extends Fragment {
 
-  private   EditText nameEditText, phoneEditText, addressEditText;
-   private RadioGroup paymentMethodGroup;
-   private TextView cartItemsTextView, totalPriceTextView;
-   private Button confirmOrderButton;
-   private ImageButton backtocart;
-   private Button btnPayment;
+    private   EditText nameEditText, phoneEditText, addressEditText;
+    private RadioGroup paymentMethodGroup;
+    private TextView cartItemsTextView, totalPriceTextView;
+    private Button confirmOrderButton;
+    private ImageButton backtocart;
+    private Button btnPayment;
 
 
     DatabaseReference ordersRef;
@@ -78,18 +78,18 @@ public class CheckoutFragment extends Fragment {
 
     @Nullable
     @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_checkout, container, false);
-        }
-        @Override
-        public void onStart() {
-            super.onStart();
-            connect();
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_checkout, container, false);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        connect();
+    }
 
-        private void connect() {
+    private void connect() {
 
         nameEditText = getView().findViewById(R.id.nameEditText);
         phoneEditText = getView().findViewById(R.id.phoneEditText);
@@ -102,9 +102,9 @@ public class CheckoutFragment extends Fragment {
         btnPayment= getView().findViewById(R.id.btnPayment);
 
         backtocart.setOnClickListener(new View.OnClickListener() {
-          @Override
+            @Override
             public void onClick(View view) {
-               gotocart();
+                gotocart();
             }
         });
 
@@ -116,7 +116,7 @@ public class CheckoutFragment extends Fragment {
 
 
 
-            // Firebase reference
+        // Firebase reference
         ordersRef = FirebaseServices.getInstance().getRefernce("Orders");
 
         // جلب السلة من CartManager
@@ -168,62 +168,62 @@ public class CheckoutFragment extends Fragment {
                             Toast.makeText(getContext(), "فشل في الاستلام: " + e.getMessage(), Toast.LENGTH_SHORT).show();
    });
             });*/
-            btnPayment.setOnClickListener(v -> {
-                List<Product> cartList = CartManager.getInstance().getCartItems();
+        btnPayment.setOnClickListener(v -> {
+            List<Product> cartList = CartManager.getInstance().getCartItems();
 
-                if (cartList.isEmpty()) {
-                    Toast.makeText(getContext(), "السلة فارغة", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            if (cartList.isEmpty()) {
+                Toast.makeText(getContext(), "السلة فارغة", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                // نأخذ معلومات المستخدم
-                String name = nameEditText.getText().toString().trim();
-                String address = addressEditText.getText().toString().trim();
-                String phone = phoneEditText.getText().toString().trim();
+            // نأخذ معلومات المستخدم
+            String name = nameEditText.getText().toString().trim();
+            String address = addressEditText.getText().toString().trim();
+            String phone = phoneEditText.getText().toString().trim();
 
-                if (name.isEmpty() || address.isEmpty() || phone.isEmpty()) {
-                    Toast.makeText(getContext(), "يرجى تعبئة جميع الحقول", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            if (name.isEmpty() || address.isEmpty() || phone.isEmpty()) {
+                Toast.makeText(getContext(), "يرجى تعبئة جميع الحقول", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                Map<String, Object> order = new HashMap<>();
-                //order.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
-               // order.put("timestamp", System.currentTimeMillis());
-                order.put("status", "pending");
-                order.put("customerName", name);
-                order.put("customerAddress", address);
-                order.put("customerPhone", phone);
-                order.put("totalPrice", CartManager.getInstance().getTotalPrice());
+            Map<String, Object> order = new HashMap<>();
+            //order.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+            // order.put("timestamp", System.currentTimeMillis());
+            order.put("status", "pending");
+            order.put("customerName", name);
+            order.put("customerAddress", address);
+            order.put("customerPhone", phone);
+            order.put("totalPrice", CartManager.getInstance().getTotalPrice());
 
 
-                List<Map<String, Object>> productList = new ArrayList<>();
-                for (Product product : cartList) {
-                    Map<String, Object> productMap = new HashMap<>();
-                    productMap.put("name", product.getNameProduct());
-                    productMap.put("price", product.getPrice());
-                    productMap.put("image", product.getImage());
-                    productMap.put("numberProduct", product.getNumberProduct());
-                    productList.add(productMap);
-                }
+            List<Map<String, Object>> productList = new ArrayList<>();
+            for (Product product : cartList) {
+                Map<String, Object> productMap = new HashMap<>();
+                productMap.put("name", product.getNameProduct());
+                productMap.put("price", product.getPrice());
+                productMap.put("image", product.getImage());
+                productMap.put("numberProduct", product.getNumberProduct());
+                productList.add(productMap);
+            }
 
-                order.put("products", productList);
+            order.put("products", productList);
 
-                FirebaseFirestore.getInstance()
-                        .collection("orders")
-                        .add(order)
-                        .addOnSuccessListener(documentReference -> {
-                            Toast.makeText(getContext(), "تم استلام الطلب", Toast.LENGTH_SHORT).show();
-                            CartManager.getInstance().clearCart();
+            FirebaseFirestore.getInstance()
+                    .collection("orders")
+                    .add(order)
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(getContext(), "تم استلام الطلب", Toast.LENGTH_SHORT).show();
+                        CartManager.getInstance().clearCart();
 
-                            // الرجوع إلى صفحة Home
-                            FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                            ft.replace(R.id.FrameLayoutMain, new Home_Fragment());
-                            ft.commit();
-                        })
-                        .addOnFailureListener(e -> {
-                            Toast.makeText(getContext(), "فشل في الاستلام: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-});
-            });
+                        // الرجوع إلى صفحة Home
+                        FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+                        ft.replace(R.id.FrameLayoutMain, new Home_Fragment());
+                        ft.commit();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(getContext(), "فشل في الاستلام: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        });
     }
 
     private void displayCartItems() {
@@ -233,18 +233,18 @@ public class CheckoutFragment extends Fragment {
 
         for (Product item : cartItems) {
             String name = item.getNameProduct();
-           // String type = item.getType();
-           // int quantity = parseInt(item.getNumberProduct());
+            // String type = item.getType();
+            // int quantity = parseInt(item.getNumberProduct());
             double price = parseDouble(item.getPrice());
             double itemTotal = price; //* quantity;
 
             itemsText.append(name)
-                  //  .append(" (").append(type).append(")")
+                    //  .append(" (").append(type).append(")")
                     //.append(" x").append(quantity)
                     .append(" - ₪").append(itemTotal)
                     .append("\n");
 
-           // totalPrice += itemTotal;
+            // totalPrice += itemTotal;
         }
 
         cartItemsTextView.setText(itemsText.toString());
@@ -270,12 +270,12 @@ public class CheckoutFragment extends Fragment {
         for (Product item : cartItems) {
             Map<String, Object> map = new HashMap<>();
             map.put("productName", item.getNameProduct());
-          //  map.put("productType", item.getType());
+            //  map.put("productType", item.getType());
             map.put("price", item.getPrice());
             map.put("productImage", item.getImage());
-           // map.put("productNumber", item.getNumberProduct());
+            // map.put("productNumber", item.getNumberProduct());
 
-           // int quantity = parseInt(item.getNumberProduct());
+            // int quantity = parseInt(item.getNumberProduct());
             double price = parseDouble(item.getPrice());
             double itemTotal = price; //* quantity;
             map.put("total", itemTotal);
@@ -319,13 +319,14 @@ public class CheckoutFragment extends Fragment {
             return 0.0;
         }
     }
-        private void gotocart() {
-            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.FrameLayoutMain, new CartProductFragment());
-            ft.commit();
-        }
+    private void gotocart() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new CartProductFragment());
+        ft.commit();
+    }
 
 
 
 
 }
+

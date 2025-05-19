@@ -1,5 +1,7 @@
 package com.example.project2;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -16,7 +18,7 @@ import com.example.project2.userfile1.AllData1Fragment;
 import com.example.project2.userfile1.addDataFragment;
 
 public class MainActivity extends AppCompatActivity {
-
+    private NetworkChangeReceiver networkChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +33,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super .onStart();
+
+
+            // تسجيل الـ BroadcastReceiver
+            networkChangeReceiver = new NetworkChangeReceiver();
+            IntentFilter filter = new IntentFilter();
+           filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            registerReceiver(networkChangeReceiver, filter);
+
+
         gotoLogin();
     }
+    @Override
+   protected void onStop() {
+   super.onStop();
+      unregisterReceiver(networkChangeReceiver);
+    }
+
     private void gotoSignup(){
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new SignupFragment());

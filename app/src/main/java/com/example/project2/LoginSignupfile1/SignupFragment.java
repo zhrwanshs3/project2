@@ -101,7 +101,7 @@ public class SignupFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.main, new LoginFragment());
+                transaction.replace(R.id.FrameLayoutMain, new LoginFragment());
                 transaction.commit();
 
             }
