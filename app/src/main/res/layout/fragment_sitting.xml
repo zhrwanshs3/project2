@@ -33,9 +33,10 @@
             android:layout_marginBottom="53dp"
             android:src="@drawable/__2025_02_05_104606"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/BacktoHome"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="93dp" />
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/BacktoHome"

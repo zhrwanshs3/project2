@@ -94,7 +94,7 @@ public class SettingFragment extends Fragment {
     }
     private void gotoHome() {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.main, new Home_Fragment());
+        transaction.replace(R.id.FrameLayoutMain, new Home_Fragment());
         transaction.commit();
 
 
