@@ -189,7 +189,7 @@ public class CheckoutFragment extends Fragment {
             Map<String, Object> order = new HashMap<>();
             //order.put("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
             // order.put("timestamp", System.currentTimeMillis());
-            order.put("status", "pending");
+            //order.put("status", "pending");
             order.put("customerName", name);
             order.put("customerAddress", address);
             order.put("customerPhone", phone);

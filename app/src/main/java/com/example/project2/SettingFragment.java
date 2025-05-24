@@ -69,7 +69,7 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_sitting, container, false);
     }
 
@@ -80,8 +80,6 @@ public class SettingFragment extends Fragment {
     }
 
     public void connect() {
-
-
         backtoHome = getView().findViewById(R.id.BacktoHome);
         backtoHome.setOnClickListener(new View.OnClickListener() {
             @Override

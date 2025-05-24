@@ -48,7 +48,7 @@ public class Utils {
         builder.setTitle(message);
         //builder.setMessage(message);
 
-        // Add a button to dismiss the dialog box
+
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // You can perform additional actions here if needed
@@ -60,12 +60,13 @@ public class Utils {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    // للرساءل
 
     public void uploadImage(Context context, Uri selectedImageUri) {
         if (selectedImageUri != null) {
             imageStr = "images/" + UUID.randomUUID() + ".jpg"; //+ selectedImageUri.getLastPathSegment();
             StorageReference imageRef = fbs.getStorage().getReference().child("images/" + selectedImageUri.getLastPathSegment());
-
+//photo
             UploadTask uploadTask = imageRef.putFile(selectedImageUri);
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -95,3 +96,4 @@ public class Utils {
         }
     }
 }
+//كلاس خدمات يساعد :بعرض رساءل تنبيه,رفع الصور للفير,لسهوله الاستعمال.

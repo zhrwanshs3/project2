@@ -80,3 +80,4 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     }
 }
+//يعرض المنتجات للمستخدم في شكل قائمة، ويعالج النقرات عليها

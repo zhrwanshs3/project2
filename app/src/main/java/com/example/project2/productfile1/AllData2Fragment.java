@@ -99,7 +99,7 @@ public class AllData2Fragment extends Fragment {
         rvProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         adapter2.setOnItemClickListener(new ProductAdapter.OnItemClickListener() {
-            @Override
+            @Override //هاد للتفاصيل
             public void onItemClick(int position) {
                 String selectedItem = products.get(position).getNameProduct();
                 Toast.makeText(getActivity(), "Clicked: " + selectedItem, Toast.LENGTH_SHORT).show();

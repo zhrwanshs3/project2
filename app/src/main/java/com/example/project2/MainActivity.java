@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super .onStart();
 
 
-            // تسجيل الـ BroadcastReceiver
+            // تسجيل  BroadcastReceiver جهاز استقبال البث
             networkChangeReceiver = new NetworkChangeReceiver();
             IntentFilter filter = new IntentFilter();
            filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);

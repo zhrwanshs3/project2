@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -12,12 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- بيانات العميل -->
+
         <ImageButton
             android:id="@+id/backtocart1"
             android:layout_width="78dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/screenshot_2025_04_19_134312" />
+            app:srcCompat="@drawable/screenshot_2025_04_19_134312"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textView2"
@@ -48,7 +50,7 @@
             android:layout_height="wrap_content"
             android:hint="adress" />
 
-        <!-- طريقة الدفع -->
+
         <RadioGroup
             android:id="@+id/paymentMethodGroup"
             android:layout_width="match_parent"
@@ -61,7 +63,7 @@
                 android:text="Cash on delivery" />
         </RadioGroup>
 
-        <!-- عرض المنتجات -->
+
         <TextView
             android:id="@+id/cartItemsTextView"
             android:layout_width="match_parent"
@@ -71,7 +73,7 @@
             android:text="Products"
             android:textSize="16sp" />
 
-        <!-- عرض المجموع الكلي -->
+
         <TextView
             android:id="@+id/totalPriceTextView"
             android:layout_width="match_parent"
@@ -81,7 +83,7 @@
             android:text="اTotal Price 0 ₪"
             android:textSize="18sp" />
 
-        <!-- زر تأكيد الطلب -->
+
         <Button
             android:id="@+id/btnPayment"
             android:layout_width="match_parent"

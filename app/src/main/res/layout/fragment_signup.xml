@@ -9,99 +9,106 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#71A13F">
+        android:background="@drawable/screenshot_2025_04_19_151220">
 
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="69dp"
-            android:src="@drawable/screenshot_2025_04_19_151220"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="54dp"
+            tools:layout_editor_absoluteY="4dp" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="336dp"
+            android:layout_height="115dp"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="54dp"
-            android:layout_marginBottom="27dp"
+            android:layout_marginBottom="584dp"
             android:src="@drawable/__2025_02_05_104606"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/goToLoginFRomSig"
-            android:layout_width="56dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="312dp"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="312dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="460dp"
+            android:layout_marginEnd="170dp"
+            android:layout_marginBottom="243dp"
             android:text="Login "
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="27dp"
+            android:layout_marginStart="161dp"
+            android:layout_marginTop="385dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginBottom="298dp"
             android:backgroundTint="#DDA4BE"
             android:text="Signup"
             android:textColor="@color/white"
             android:textColorLink="#08571F"
-            app:layout_constraintBottom_toTopOf="@+id/goToLoginFRomSig"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:rippleColor="#2B2D30"
             app:strokeColor="#430D0D"
             tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/editTextTextEmailAddress2"
-            android:layout_width="207dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="175dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="511dp"
             android:ems="10"
             android:hint="username..."
             android:inputType="textEmailAddress"
             android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="237dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="442dp"
             android:ems="10"
             android:hint="password..."
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 

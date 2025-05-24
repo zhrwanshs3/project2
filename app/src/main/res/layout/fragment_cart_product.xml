@@ -12,7 +12,8 @@
         android:id="@+id/bactall"
         android:layout_width="85dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/screenshot_2025_04_19_134312" />
+        app:srcCompat="@drawable/screenshot_2025_04_19_134312"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"

@@ -20,7 +20,7 @@ public class Order {
     public Order(String userId, long timestamp, String status, String customerName, String customerAddress, String customerPhone, List<Product> products) {
         //this.userId = userId;
         //this.timestamp = timestamp;
-        this.status = status;
+        //this.status = status;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerPhone = customerPhone;

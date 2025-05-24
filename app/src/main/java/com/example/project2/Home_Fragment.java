@@ -102,6 +102,4 @@ public class Home_Fragment extends Fragment {
         ft.commit();
     }
 
-
-
 }

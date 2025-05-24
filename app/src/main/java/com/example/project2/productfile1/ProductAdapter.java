@@ -88,3 +88,4 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         this.itemClickListener = listener;
 }
 }
+//يعرض المنتجات للمستخدم في شكل قائمة، ويعالج النقرات عليها

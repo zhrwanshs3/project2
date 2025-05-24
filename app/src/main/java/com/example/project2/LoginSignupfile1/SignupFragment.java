@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project2.FirebaseServices;
+import com.example.project2.Home_Fragment;
 import com.example.project2.R;
 import com.example.project2.productfile1.AddData2Fragment;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -123,7 +124,8 @@ public class SignupFragment extends Fragment {
 
                 public void onSuccess(AuthResult authResult) {
                     Toast.makeText(getActivity(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
-                    gotoAddData2();
+                    //gotoAddData2();
+                    gotoHome();
                     return;
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -145,7 +147,12 @@ public class SignupFragment extends Fragment {
 
 
     }
-}
+    private void gotoHome() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new Home_Fragment());
+        ft.commit();
+    }
+    }
 
 
 

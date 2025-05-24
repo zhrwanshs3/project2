@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class NetworkChangeReceiver extends BroadcastReceiver {
 
+    // هاد براقب حاله الاتصال بلنت
 
     @Override
     public void onReceive(Context context, Intent intent) {

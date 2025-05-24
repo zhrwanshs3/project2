@@ -21,18 +21,18 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-
+//ملاحطات للامتحان
 public class FirebaseServices {
-    private static FirebaseServices instance;
-    private FirebaseAuth auth;
-    private FirebaseFirestore fire;
-    private FirebaseStorage storage ;
+    private static FirebaseServices instance; //نسخة وحدة
+    private FirebaseAuth auth; //لتسجيل دخول المستخدمين
+    private FirebaseFirestore fire; //قاعدة بيانات سحابية لحفظ بيانات
+    private FirebaseStorage storage ; //لتخزين الصور
     private Uri selectedImageURL;
     private User currentUser;
     private StorageReference storageReference;
     private boolean userChangeFlag;
     private ArrayList<Product> cartProducts;
-    private FirebaseDatabase database;
+    private FirebaseDatabase database; //لحفظ بيانات مباشرة
 
     public ArrayList<Product> getCartProducts() {
         return cartProducts;
@@ -101,7 +101,7 @@ public class FirebaseServices {
     public void setUserChangeFlag(boolean userChangeFlag) {
         this.userChangeFlag = userChangeFlag;
     }
-
+//للتعامل مع الايميل
     public void getCurrentObjectUser(UserCallback callback) {        ArrayList<User> usersInternal = new ArrayList<>();
         fire.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
